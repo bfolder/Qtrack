@@ -1,14 +1,45 @@
 <!DOCTYPE html>
+<!--[if IE 8]>    <html class="no-js ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <html>
-<head>
-  <title><%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Qtrack - Minimal issue tracker for the web.">
+        <meta name="author" content="Heiko Dreyer">
+        <meta name="robots" content="index, follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<%= yield %>
+        <%= favicon_link_tag 'img/icons/favicon.ico' %>
 
-</body>
+        <!-- CSS styles -->
+        <%= stylesheet_link_tag 'application', :media => 'all' %>
+        <%= stylesheet_link_tag 'css/plugins/jquery.visualize', :media => 'all' %>
+        <%= stylesheet_link_tag 'css/plugins/bootstrap-wysihtml5', :media => 'all' %>
+        <%= stylesheet_link_tag 'css/style', :media => 'all' %>
+
+        <!-- JS Libs -->
+        <%= javascript_include_tag 'application' %>
+        <%= javascript_include_tag 'js/libs/modernizr' %>
+        <%= javascript_include_tag 'js/libs/selectivizr' %>
+
+        <title><%= yield(:title) %></title>
+        <%= csrf_meta_tags %>
+    </head>
+
+    <body>
+        <%= render 'layouts/navigation' %>
+
+        <!-- Main content -->
+        <div class="container" role="main">
+            <%= yield %>
+        </div>
+        <!-- /Main content -->
+
+        <%= render "layouts/footer" %>
+
+        <!-- Scripts -->
+        <%= javascript_include_tag 'js/navigation' %>
+        <%= javascript_include_tag 'js/bootstrap/bootstrap' %>
+    </body>
 </html>

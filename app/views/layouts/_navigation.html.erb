@@ -1,0 +1,63 @@
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="awe-user"></span></button>
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="awe-chevron-down"></span></button>
+
+      <a class="brand" href="/">Qtrack - Minimal issue tracker for the web.</a>
+
+      <div class="nav-collapse">
+
+          <!-- Main navigation -->
+          <nav class="navigation">
+              <ul class="nav active-arrows" role="navigation">
+                <li>
+                  <a href="@routes.Application.index" title="Overview">
+                  <span class="awe-home"></span>
+                  Overview
+                  </a>
+                </li>
+
+                <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" title="Projects" href="ui-buttons.html">
+                        <div><span class="awe-tags"></span> Projects</div>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                    </ul>
+                </li>
+                <li>
+                    <a href="@routes.Users.index" title="User list">
+                    <span class="awe-group"></span>
+                    User list
+                    </a>
+                    </li>
+                    <li class="divider-vertical"></li>
+              </ul>
+          </nav>
+
+        <!-- User navigation -->
+        <nav class="user">
+          <div class="user-info pull-right">
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                <div>
+                  <strong>NAME</strong>
+                  Administrator
+                </div>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="@routes.Account.index"><span class="awe-cogs"></span> Account settings</a></li>
+                <li class="divider"></li>
+                <li><a href="@routes.Application.logout"><span class="awe-signout"></span> Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /Main navigation bar -->
