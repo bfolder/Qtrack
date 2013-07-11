@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   def after_sign_out_path_for(resource_or_scope)
-    # Little hard coded
+    # Little hard coded - Should change that later
     '/users/sign_in'
   end
 
