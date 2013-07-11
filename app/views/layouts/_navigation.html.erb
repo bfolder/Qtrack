@@ -51,7 +51,11 @@
               <ul class="dropdown-menu">
                 <li><a href="@routes.Account.index"><span class="awe-cogs"></span> Account settings</a></li>
                 <li class="divider"></li>
-                <li><a href="@routes.Application.logout"><span class="awe-signout"></span> Logout</a></li>
+                <li>
+                  <%= link_to destroy_user_session_path, :method => 'delete' do %>
+                      <span class='awe-signout'></span>Logout
+                  <% end %>
+                </li>
               </ul>
             </div>
           </div>
