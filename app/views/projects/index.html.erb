@@ -1,0 +1,9 @@
+<% provide(:title, 'Projects - Qtrack') %>
+<h1>Projects list</h1>
+<p>
+    <ul>
+      <% for @project in @projects %>
+          <li><%= @project.name %></li>
+      <% end %>
+    </ul>
+</p>
