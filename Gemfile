@@ -2,7 +2,13 @@ source 'https://rubygems.org'
 
 # Rails 3.2
 gem 'rails', '3.2.13'
+
+# We use haml
 gem 'haml-rails'
+
+# Authentication via Device & CanCan
+gem 'devise'
+gem 'cancan'
 
 #  Database stuff: use sqlite in dev mode and mysql2 in production
 group :development, :test do

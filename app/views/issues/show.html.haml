@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @issue.name
+%p
+  %b Content:
+  = @issue.content
+%p
+  %b Priority:
+  = @issue.priority
+%p
+  %b Is resolved:
+  = @issue.is_resolved
+
+= link_to 'Edit', edit_issue_path(@issue)
+\|
+= link_to 'Back', issues_path

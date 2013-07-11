@@ -1,0 +1,25 @@
+%h1 Listing issues
+
+%table
+  %tr
+    %th Name
+    %th Content
+    %th Priority
+    %th Is resolved
+    %th
+    %th
+    %th
+
+  - @issues.each do |issue|
+    %tr
+      %td= issue.name
+      %td= issue.content
+      %td= issue.priority
+      %td= issue.is_resolved
+      %td= link_to 'Show', issue
+      %td= link_to 'Edit', edit_issue_path(issue)
+      %td= link_to 'Destroy', issue, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Issue', new_issue_path
