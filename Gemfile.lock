@@ -40,6 +40,13 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    haml (4.0.3)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
@@ -52,6 +59,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.7)
+    mysql2 (0.3.11)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -104,7 +112,9 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  haml-rails
   jquery-rails
+  mysql2
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3
