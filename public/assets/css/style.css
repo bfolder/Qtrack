@@ -10992,6 +10992,10 @@ div.jGrowl div.inverse a:hover {
 .error-page section .error404 h1:before {
   content: "404";
 }
+.error-page section .error422 h1:after,
+.error-page section .error422 h1:before {
+  content: "422";
+}
 .error-page section .error500 h1:after,
 .error-page section .error500 h1:before {
   content: "500";
