@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>" data-dismiss="alert">
+      <button type="button" class="close" data-dismiss="alert">×</button>
+      <strong><%= name.capitalize %> </strong>
+      <%= msg %>
+  </div>
+<% end %>

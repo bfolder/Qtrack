@@ -13,27 +13,17 @@
           <nav class="navigation">
               <ul class="nav active-arrows" role="navigation">
                 <li>
-                  <a href="@routes.Application.index" title="Overview">
-                  <span class="awe-home"></span>
-                  Overview
-                  </a>
-                </li>
-
-                <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" title="Projects" href="ui-buttons.html">
-                        <div><span class="awe-tags"></span> Projects</div>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu pull-right">
-                    </ul>
+                    <%= link_to projects_path, title: 'Projects' do %>
+                        <span class="awe-tags"></span>
+                        Projects
+                    <% end %>
                 </li>
                 <li>
-                    <a href="@routes.Users.index" title="User list">
+                    <a href="" title="User list">
                     <span class="awe-group"></span>
                     User list
                     </a>
-                    </li>
-                    <li class="divider-vertical"></li>
+                </li>
               </ul>
           </nav>
 
@@ -49,7 +39,7 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="@routes.Account.index"><span class="awe-cogs"></span> Account settings</a></li>
+                <li><a href="#"><span class="awe-cogs"></span> Account settings</a></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => 'delete' do %>

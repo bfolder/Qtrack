@@ -1,9 +1,74 @@
 <% provide(:title, 'Projects - Qtrack') %>
-<h1>Projects list</h1>
-<p>
-    <ul>
-      <% for @project in @projects %>
-          <li><%= @project.name %></li>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
       <% end %>
-    </ul>
-</p>
+    </li>
+    <li>Projects</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+  <!--@*Display flashes here *@
+
+  <% render_flashes %>
+
+  <!-- Main data container -->
+  <div class="content">
+    <div class="page-header">
+      <!-- Page grid cell (12 blocks - full) -->
+      <h2>Projects</h2>
+
+      <ul class="page-header-actions">
+        <li><a class="btn btn-wuxia btn-primary" href="#">New Project</a></li>
+      </ul>
+    </div>
+
+    <!-- Tab content -->
+    <div class="page-container tab-content">
+
+      <!-- Tab #ui -->
+      <div class="tab-pane active" id="ui">
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- /Page grid cell (12 blocks - full) -->
+
+          <!-- Page grid cell (12 blocks - full) -->
+          <article class="span12">
+
+            <% if @projects.empty? %>
+            <div class="well" style="text-align: center; margin-bottom: 25px; margin-top: 15px; padding: 25px; color: #878D96;">
+              <span>No Projects yet.</span>
+            </div>
+            <% else %>
+            <p>
+                <ul>
+                <% for @project in @projects %>
+                    <li><%= @project.name %></li>
+                <% end %>
+                </ul>
+            </p>
+            <!-- Page grid cell (12 blocks - full) -->
+            <% end %>
+          </article>
+          <!-- Page grid cell (12 blocks - full) -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- /Tab #ui -->
+
+    </div>
+    <!-- /Tab content -->
+
+  </div>
+  <!-- /Main data container -->
+
+</div>
+<!-- /Main content -->
