@@ -1,0 +1,41 @@
+<% provide(:title, 'New Issue - Qtrack') %>
+
+<% content_for :js do %>
+    <%= javascript_include_tag 'js/plugins/wysihtml5/wysihtml5-0.3.0' %>
+    <%= javascript_include_tag 'js/plugins/wysihtml5/bootstrap-wysihtml5' %>
+    <%= javascript_include_tag 'js/plugins/waypoints.min' %>
+    <script>
+      $(document).ready(function() {
+            $('.wysihtml5').wysihtml5();
+      });
+    </script>
+<% end %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    <li>
+      <%= link_to @project.name, @project%>
+    </li>
+    <li class="active">New issue</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+  <!-- Display flashes here -->
+  <% render_flashes %>
+
+  <div class="content">
+    <div class="page-header">
+      <h2>New issue - <%= @project.name %><small> Use this form to create a new issue.</small></h2>
+    </div>
+
+    <%= render 'issues/form' %>
+
+  </div>
+</div>
+<!-- /Main content -->

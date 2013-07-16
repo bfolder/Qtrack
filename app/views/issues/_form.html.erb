@@ -1,0 +1,41 @@
+<!-- Tab content -->
+<div class="page-container tab-content">
+  <!-- Tab #ui -->
+  <div class="tab-pane active">
+
+
+    @helper.form(routes.Issues.add(currentProject.getId), 'class -> "form-horizontal single-form") {
+    <fieldset>
+      <div class="control-group">
+        <label class="control-label" for="input">Title</label>
+        <div class="controls">
+          <input id="name" class="input-xlarge" type="text" name="title" placeholder="Enter a title">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="select">Select priority</label>
+        <div class="controls">
+          <select id="select" name="priority">
+            <option value="1">Low</option>
+            <option value="2" selected="selected">Normal</option>
+            <option value="3">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <textarea id="textarea4" class="wysihtml5" placeholder="Enter text ..." rows="8" name="text"></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-wuxia btn-large btn-primary" type="submit">Create</button>
+      </div>
+    </fieldset>
+    }
+
+
+  </div>
+</div>
