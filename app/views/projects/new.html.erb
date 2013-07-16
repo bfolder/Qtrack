@@ -1,0 +1,52 @@
+<% provide(:title, 'New Project - Qtrack') %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to projects_path do %>
+          <span class="awe-tags"></span> Projects
+      <% end %>
+    </li>
+    <li class="active">New project</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+
+  <!-- Display flashes here -->
+  <% render_flashes %>
+
+  <div class="content">
+    <div class="page-header">
+      <h2>New project <small> Use this form to create a new project.</small></h2>
+    </div>
+    <!-- Tab content -->
+    <div class="page-container tab-content">
+      <!-- Tab #ui -->
+      <div class="tab-pane active">
+
+
+        <%= form_for(@project) do |f| %>
+            <fieldset>
+              <div class="control-group">
+                <label class="control-label" for="input">Name</label>
+                <div class="controls">
+                    <%= f.text_field :name, class: 'input-xlarge', placeholder: 'Enter a title' %>
+                </div>
+              </div>
+              <div class="form-actions">
+                <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
+              </div>
+            </fieldset>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Main content -->
