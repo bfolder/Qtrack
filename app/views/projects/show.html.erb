@@ -1,0 +1,121 @@
+<% provide :title, "#{@project.name} - Qtrack" %>
+
+<% content_for :js do %>
+    <%= javascript_include_tag 'js/plugins/dataTables/jquery.datatables.min' %>
+    <%= javascript_include_tag 'js/tables' %>
+<% end %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to projects_path do %>
+          <span class="awe-tags"></span> Projects
+      <% end %>
+    </li>
+    <li class="active">
+      <%= @project.name %>
+    </li>
+  </ul>
+  <!-- /Breadcrumbs -->
+
+  <!-- Display flashes here -->
+  <% render_flashes %>
+
+  <!-- Main data container -->
+  <div class="content">
+    <div class="page-header">
+      <!-- Page grid cell (12 blocks - full) -->
+      <h2><%= @project.name %></h2>
+
+      <ul class="page-header-actions">
+        <!--@if(controllers.auth.Secured.isAdmin) {
+        <li><a class="btn btn-wuxia" href="@routes.Projects.edit(currentProject.getId)">Edit Project</a></li>
+        }-->
+        <li><a class="btn btn-wuxia btn-primary" href="#">New Issue</a></li>
+      </ul>
+    </div>
+
+    <!-- Tab content -->
+    <div class="page-container tab-content">
+
+      <!-- Tab #ui -->
+      <div class="tab-pane active" id="ui">
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- /Page grid cell (12 blocks - full) -->
+
+          <!-- Page grid cell (12 blocks - full) -->
+          <article class="span12">
+            <% if @project.issues.size == 0 %>
+                <div class="well" style="text-align: center; margin-bottom: 25px; margin-top: 15px; padding: 25px; color: #878D96;">
+                  <span>No issues yet. Why don't you just <a href="#" title="New Issue">create one</a>?</span>
+                </div>
+            <% else %>
+                <!-- Page grid cell (12 blocks - full) -->
+                <div style="text-align: center; margin-bottom: 25px;">
+                  <div class="btn-group">
+                    <a href="#" id="unresolved-button" href="#" class="btn btn-wuxia active" style="width: 100px;" class="btn active">Unresolved</a>
+                    <a href="#" id="resolved-button" href="#" style="width: 100px;" class="btn btn-wuxia">Resolved</a>
+                  </div>
+                </div>
+                <table id="projects-overview" class="issues datatable table table-striped table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th width="10%">Priority</th>
+                    <th width="50%">Title</th>
+                    <th width="15%">Created by</th>
+                    <th width="15%">Last modified</th>
+                    <th width="10%">Status</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @project.issues.each do |issue| %>
+                      <tr id="issue-@issue.getId" class="odd gradeX @issue.getPriorityString
+                                                        <% if issue.resolved? %>
+                                                            resolved
+                                                        <% end %>">
+
+                        <td><%= print_priority_string(issue) %></td>
+                        <td style='text-align: left;'>
+                            <strong>
+                                <%= link_to issue.name, issue, title: issue.name %>
+                            </strong>
+                        </td>
+                        <td>
+                          <% unless issue.user == nil %>
+                            <%= link_to issue.user.name, issue.user.name.email %>
+                          <% end %>
+                        </td>
+                        <td><%= issue.updated_at.strftime('%m/%d/%Y') %></td>
+                        <td><%= if issue.resolved? then 'Resolved' else 'Unresolved' end %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+                <!-- Page grid cell (12 blocks - full) -->
+          <% end %>
+          </article>
+          <!-- Page grid cell (12 blocks - full) -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- /Tab #ui -->
+
+    </div>
+    <!-- /Tab content -->
+
+  </div>
+  <!-- /Main data container -->
+
+</div>

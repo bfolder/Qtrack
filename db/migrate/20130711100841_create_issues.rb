@@ -6,6 +6,7 @@ class CreateIssues < ActiveRecord::Migration
       t.integer :priority
       t.boolean :is_resolved
       t.belongs_to :project
+      t.belongs_to :user
       t.timestamps
     end
   end

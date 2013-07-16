@@ -3,9 +3,14 @@ class Issue < ActiveRecord::Base
   validates :name, presence: true
   validates :content, presence: true
   belongs_to :project
+  belongs_to :user
   has_many :comments
   after_initialize :defaults
   accepts_nested_attributes_for :comments
+
+  def resolved?
+    is_resolved
+  end
 
 private
   def defaults
