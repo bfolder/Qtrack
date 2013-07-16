@@ -24,7 +24,7 @@
       <h2>Projects</h2>
 
       <ul class="page-header-actions">
-        <li><a class="btn btn-wuxia btn-primary" href="#">New Project</a></li>
+        <li><%= link_to 'New Project', new_project_path, class: 'btn btn-wuxia btn-primary' %></li>
       </ul>
     </div>
 
@@ -48,7 +48,7 @@
             <% else %>
             <ul class="project-list">
               <% for @project in @projects %>
-                 <li><span class="big"><%= link_to @project.name, @project %></span> - <%= print_issue_counter(@project) %></li>
+                 <li><span class="big"><%= link_to @project.name, @project %></span> - <small><%= print_issue_counter(@project) %></small></li>
               <% end %>
             </ul>
             <!-- Page grid cell (12 blocks - full) -->
