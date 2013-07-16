@@ -11605,3 +11605,18 @@ td.dataTables_empty {
 	padding: 0px 10px 0px 10px;
   	border-top: 1px dotted #eeeeee;
 }
+
+.project-list {
+    list-style: none;
+    margin: 15px 25px 15px 25px;
+}
+
+.project-list li {
+    border-bottom: 1px dotted #eeeeee;
+    padding: 15px 0px 10px 0px;
+    height: 25px;
+}
+
+.project-list .big {
+    font-size: 19px;
+}

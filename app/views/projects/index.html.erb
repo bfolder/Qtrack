@@ -46,13 +46,11 @@
               <span>No Projects yet.</span>
             </div>
             <% else %>
-            <p>
-                <ul>
-                <% for @project in @projects %>
-                    <li><%= @project.name %></li>
-                <% end %>
-                </ul>
-            </p>
+            <ul class="project-list">
+              <% for @project in @projects %>
+                 <li><span class="big"><%= link_to @project.name, @project %></span> - <%= print_issue_counter(@project) %></li>
+              <% end %>
+            </ul>
             <!-- Page grid cell (12 blocks - full) -->
             <% end %>
           </article>
