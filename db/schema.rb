@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130711144142) do
     t.integer  "priority"
     t.boolean  "is_resolved"
     t.integer  "project_id"
+    t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

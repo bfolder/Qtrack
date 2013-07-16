@@ -2,6 +2,7 @@ require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
   setup do
+    sign_in User.first
     @comment = comments(:one)
   end
 

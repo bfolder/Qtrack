@@ -2,6 +2,7 @@ require 'test_helper'
 
 class IssuesControllerTest < ActionController::TestCase
   setup do
+    sign_in User.first
     @issue = issues(:one)
   end
 

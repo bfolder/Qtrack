@@ -4,6 +4,7 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
 
+    # Send response
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @issue }
@@ -13,8 +14,13 @@ class IssuesController < ApplicationController
   # GET /issues/new
   # GET /issues/new.json
   def new
+    # Create vanilla issue
     @issue = Issue.new
 
+    # Assign project here
+    #@project = ...
+
+    # Send response
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @issue }
@@ -23,15 +29,23 @@ class IssuesController < ApplicationController
 
   # GET /issues/1/edit
   def edit
+    # Find corresponding issue
     @issue = Issue.find(params[:id])
   end
 
   # POST /issues
   # POST /issues.json
   def create
+    # Create new issue
     @issue = Issue.new(params[:issue])
-    @issue.user = User.current_user
 
+    # Assign current user
+    @issue.user = current_user
+
+    # Assign project here
+    #@issue.project =
+
+    # Send response
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -48,6 +62,7 @@ class IssuesController < ApplicationController
   def update
     @issue = Issue.find(params[:id])
 
+    # Send response
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
@@ -62,9 +77,13 @@ class IssuesController < ApplicationController
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
+    # Find corresponding issue
     @issue = Issue.find(params[:id])
+
+    # Delete issue
     @issue.destroy
 
+    # Send response
     respond_to do |format|
       format.html { redirect_to issues_url }
       format.json { head :no_content }

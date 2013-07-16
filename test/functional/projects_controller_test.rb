@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
+    sign_in User.first
     @project = projects(:one)
   end
 
