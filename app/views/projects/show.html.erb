@@ -39,7 +39,7 @@
         <!--@if(controllers.auth.Secured.isAdmin) {
         <li><a class="btn btn-wuxia" href="@routes.Projects.edit(currentProject.getId)">Edit Project</a></li>
         }-->
-        <li><a class="btn btn-wuxia btn-primary" href="#">New Issue</a></li>
+        <li><%= link_to 'New Issue', new_project_issue_path(@project), title: 'New Issue', class: 'btn btn-wuxia btn-primary' %></li>
       </ul>
     </div>
 
@@ -57,7 +57,7 @@
           <article class="span12">
             <% if @project.issues.size == 0 %>
                 <div class="well" style="text-align: center; margin-bottom: 25px; margin-top: 15px; padding: 25px; color: #878D96;">
-                  <span>No issues yet. Why don't you just <a href="#" title="New Issue">create one</a>?</span>
+                  <span>No issues yet. Why don't you just <%= link_to 'create one', new_project_issue_path(@project), title: 'New Issue' %>?</span>
                 </div>
             <% else %>
                 <!-- Page grid cell (12 blocks - full) -->
@@ -79,7 +79,7 @@
                   </thead>
                   <tbody>
                   <% @project.issues.each do |issue| %>
-                      <tr id="issue-@issue.getId" class="odd gradeX @issue.getPriorityString
+                      <tr id="issue-<%= issue.id %>" class="odd gradeX <%= print_priority_string(issue)%>
                                                         <% if issue.resolved? %>
                                                             resolved
                                                         <% end %>">
@@ -92,7 +92,7 @@
                         </td>
                         <td>
                           <% unless issue.user == nil %>
-                            <%= link_to issue.user.name, issue.user.name.email %>
+                            <%= link_to issue.user.name, issue.user.email %>
                           <% end %>
                         </td>
                         <td><%= issue.updated_at.strftime('%m/%d/%Y') %></td>

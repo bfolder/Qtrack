@@ -18,7 +18,9 @@ class IssuesController < ApplicationController
     @issue = Issue.new
 
     # Assign project here
-    #@project = ...
+    @project = Project.find(params[:project_id])
+    puts "''''''''''''''''''''''"
+    puts @project
 
     # Send response
     respond_to do |format|
@@ -43,15 +45,16 @@ class IssuesController < ApplicationController
     @issue.user = current_user
 
     # Assign project here
-    #@issue.project =
+    @issue.project = Project.find(params[:project_id])
 
     # Send response
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
+        format.html { redirect_to @issue.project, notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
-        format.html { render action: "new" }
+        @project = @issue.project
+        format.html { render action: 'new' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
@@ -68,7 +71,7 @@ class IssuesController < ApplicationController
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end
