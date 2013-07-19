@@ -3,6 +3,7 @@ class IssuesController < ApplicationController
   # GET /issues/1.json
   def show
     @issue = Issue.find(params[:id])
+    @comment = Comment.new
 
     # Send response
     respond_to do |format|
@@ -19,8 +20,9 @@ class IssuesController < ApplicationController
 
     # Assign project here
     @project = Project.find(params[:project_id])
-    puts "''''''''''''''''''''''"
-    puts @project
+
+    # Assign form object
+    @form_object = [@project, @issue]
 
     # Send response
     respond_to do |format|
@@ -33,6 +35,10 @@ class IssuesController < ApplicationController
   def edit
     # Find corresponding issue
     @issue = Issue.find(params[:id])
+    @project = @issue.project
+
+    # Assign form object
+    @form_object = @issue
   end
 
   # POST /issues
@@ -67,11 +73,29 @@ class IssuesController < ApplicationController
 
     # Send response
     respond_to do |format|
+      puts '-----------------'
       if @issue.update_attributes(params[:issue])
+        puts @issue.priority
         format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
         format.json { head :no_content }
       else
+        @project = @issue.project
         format.html { render action: 'edit' }
+        format.json { render json: @issue.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def resolve
+    @issue = Issue.find(params[:id])
+
+    # Send response
+    respond_to do |format|
+      if @issue.update_attributes(is_resolved: !@issue.is_resolved)
+        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'show' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
     end

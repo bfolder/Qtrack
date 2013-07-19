@@ -2,11 +2,10 @@ Qtrack::Application.routes.draw do
   devise_for :users
 
   resources :projects do
-    resources :issues
-  end
-
-  resources :issues do
-    resources :comments
+    resources :issues, :shallow => true do
+      get 'resolve', :on => :member
+      resources :comments
+    end
   end
 
   root :to => redirect('/projects')

@@ -1,0 +1,84 @@
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li>Projects</li>
+    <li>
+      <%= link_to @issue.project.name, @issue.project %>
+    </li>
+    <li class="active">
+      <%= @issue.name %>
+    </li>
+  </ul>
+
+  <!-- /Breadcrumbs -->
+  <!-- Display flashes here -->
+  <% render_flashes %>
+
+  <div class="content">
+    <div class="page-header">
+      <h2><%= @issue.name %> - <%= @issue.project.name %> <small class="issue-small">
+        <%= link_to @issue.user.name, "mailto: #{@issue.user.email}", title: 'Mail author' %> - <%= @issue.updated_at.strftime('%m/%d/%Y') %> -- Priority: <span class="<%= print_priority_string(@issue) %>"><%= print_priority_string(@issue) %></span>
+        <%= print_resolved_message(@issue) %>
+      </small>
+      </h2>
+      <ul class="page-header-actions">
+        <li>
+          <%= print_resolve_button(@issue) %>
+        </li>
+        <li><%= link_to 'Edit Issue', edit_issue_path(@issue), class: 'btn btn-wuxia' %></li>
+      </ul>
+    </div>
+    <!-- Tab content -->
+    <div class="page-container tab-content">
+
+      <!-- Tab #ui -->
+      <div class="tab-pane active">
+        <div class="row">
+          <div class="span12">
+            <p><%= @issue.content.html_safe %></p>
+          </div>
+        </div>
+      </div>
+    </div
+  </div>
+
+  <div class="page-footer">
+    <h4>Comments (<%= @issue.comments.size %>)</h4>
+
+    <% @issue.comments.each_with_index do |comment, i|%>
+        <article class="comment">
+          <small style="display: block; margin-bottom: 5px;"><b>#<%= i + 1 %></b> - <a href="mailto: <%= comment.user.email unless comment.user.nil? %>" title="Author"><%= comment.user.name unless comment.user.nil? %></a> - <%= comment.created_at.strftime('%m/%d/%Y') %>
+            <% if true %>
+            - <% link_to 'Delete', comment, :method => :delete, title: 'Delete' %>
+            <% end %>
+          </small>
+          <p>
+            <%= comment.content %>
+          </p>
+        </article>
+    <% end %>
+
+    <%= form_for [@issue, @comment] do |f| %>
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="textarea">Add Comment:</label>
+            <div class="controls">
+              <%= f.text_area :content, class: 'input-xlarge', rows: '5', id: 'test' %>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <%= content_tag :button, 'Add', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+</div>
+<!-- /Main content -->
