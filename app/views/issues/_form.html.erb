@@ -14,7 +14,7 @@
           <div class="control-group">
             <label class="control-label" for="select">Select priority</label>
             <div class="controls">
-              <%= select_tag :priority, options_for_select({Low: 0, Medium: 1, High: 2}, @issue.priority) %>
+              <%= f.select :priority, options_for_select({Low: 0, Medium: 1, High: 2}, @issue.priority) %>
             </div>
           </div>
 

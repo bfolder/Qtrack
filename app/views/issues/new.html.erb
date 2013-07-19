@@ -20,8 +20,14 @@
       <%= link_to root_path do %>
           <span class="awe-home"></span> Home
       <% end %>
+    </li>
     <li>
-      <%= link_to @issue.project.name, @project%>
+      <%= link_to projects_path do %>
+          <span class="awe-tags"></span> Projects
+      <% end %>
+    </li>
+    <li>
+      <%= link_to @issue.project.name, @issue.project %>
     </li>
     <li class="active">New issue</li>
   </ul>

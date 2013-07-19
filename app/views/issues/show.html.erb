@@ -8,7 +8,11 @@
           <span class="awe-home"></span> Home
       <% end %>
     </li>
-    <li>Projects</li>
+    <li>
+      <%= link_to projects_path do %>
+          <span class="awe-tags"></span> Projects
+      <% end %>
+    </li>
     <li>
       <%= link_to @issue.project.name, @issue.project %>
     </li>

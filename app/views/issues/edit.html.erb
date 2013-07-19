@@ -16,18 +16,24 @@
 
   <!-- Breadcrumbs -->
   <ul class="breadcrumb">
-    <li>
-      <%= link_to root_path do %>
+      <li>
+        <%= link_to root_path do %>
           <span class="awe-home"></span> Home
-      <% end %>
-      <li>
-        <%= link_to @issue.project.name, @issue.project%>
+        <% end %>
       </li>
       <li>
-        <%= link_to @issue.name, @issue%>
+        <%= link_to projects_path do %>
+          <span class="awe-tags"></span> Projects
+        <% end %>
       </li>
-      <li class="active">Edit issue</li>
-      </ul>
+      <li>
+        <%= link_to @issue.project.name, @issue.project %>
+      </li>
+      <li>
+        <%= link_to @issue.name, @issue %>
+      </li>
+      <li class="active">Edit</li>
+  </ul>
   <!-- /Breadcrumbs -->
   <!-- Display flashes here -->
   <% render_flashes %>
