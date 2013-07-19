@@ -21,7 +21,7 @@
           <span class="awe-home"></span> Home
       <% end %>
       <li>
-        <%= link_to @project.name, @project%>
+        <%= link_to @issue.project.name, @issue.project%>
       </li>
       <li>
         <%= link_to @issue.name, @issue%>
@@ -34,7 +34,7 @@
 
   <div class="content">
     <div class="page-header">
-      <h2>Edit issue - <%= @project.name %><small> Use this form edit create an issue.</small></h2>
+      <h2>Edit issue - <%= @issue.project.name %><small> Use this form edit create an issue.</small></h2>
     </div>
 
     <%= render 'issues/form' %>
