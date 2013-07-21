@@ -118,7 +118,7 @@ jQuery.fn.dataTableExt.oSort['priority-asc'] = function(x,y) {
     if(x == "Normal" && y == "High")
         return 1;
 
-    return -1;
+    return 1;
 };
 
 $(document).ready(function() {
