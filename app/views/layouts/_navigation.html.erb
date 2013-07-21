@@ -12,13 +12,13 @@
           <!-- Main navigation -->
           <nav class="navigation">
               <ul class="nav active-arrows" role="navigation">
-                <%= content_tag :li, class: active_class?(projects_path) do %>
+                <%= content_tag :li, class: project_active? do %>
                     <%= link_to projects_path, title: 'Projects' do %>
                         <span class="awe-tags"></span>
                         Projects
                     <% end %>
                 <% end %>
-                <%= content_tag :li do %>
+                <%= content_tag :li, class: user_list_active? do %>
                     <%= link_to projects_path, title: 'User list' do %>
                         <span class="awe-group"></span>
                         User list

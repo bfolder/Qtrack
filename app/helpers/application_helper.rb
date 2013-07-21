@@ -3,8 +3,13 @@ module ApplicationHelper
     render 'shared/flashes'
   end
 
-  def active_class?(path)
-    return 'active' if request.url.include?(path)
+  def project_active?
+    return 'active' if @project || @issue
+    ''
+  end
+
+  def user_list_active?
+    return 'active' if !@project && !@issue
     ''
   end
 end
