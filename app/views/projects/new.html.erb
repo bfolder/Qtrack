@@ -30,21 +30,7 @@
     <div class="page-container tab-content">
       <!-- Tab #ui -->
       <div class="tab-pane active">
-
-
-        <%= form_for(@project) do |f| %>
-            <fieldset>
-              <div class="control-group">
-                <label class="control-label" for="input">Name</label>
-                <div class="controls">
-                    <%= f.text_field :name, class: 'input-xlarge', placeholder: 'Enter a title' %>
-                </div>
-              </div>
-              <div class="form-actions">
-                  <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
-              </div>
-            </fieldset>
-        <% end %>
+        <%= render partial: 'form', locals: {is_edit: false} %>
       </div>
     </div>
   </div>

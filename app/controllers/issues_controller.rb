@@ -59,6 +59,7 @@ class IssuesController < ApplicationController
         format.html { redirect_to @issue.project, notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
+        @form_object = [@issue.project, @issue]
         format.html { render action: 'new' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end
@@ -77,6 +78,7 @@ class IssuesController < ApplicationController
         format.json { head :no_content }
       else
         @project = @issue.project
+        @form_object = @issue
         format.html { render action: 'edit' }
         format.json { render json: @issue.errors, status: :unprocessable_entity }
       end

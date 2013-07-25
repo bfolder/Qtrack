@@ -3,6 +3,7 @@
   <!-- Tab #ui -->
   <div class="tab-pane active">
     <%= form_for(@form_object) do |f| %>
+        <%= render partial: 'shared/errors', locals: {object: @issue} %>
         <fieldset>
           <div class="control-group">
             <label class="control-label" for="input">Title</label>
