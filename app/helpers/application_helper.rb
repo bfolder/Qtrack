@@ -4,12 +4,12 @@ module ApplicationHelper
   end
 
   def project_active?
-    return 'active' if @project || @issue
+    return 'active' if @project || @issue || @projects
     ''
   end
 
   def user_list_active?
-    return 'active' if !@project && !@issue
+    return 'active' if @users
     ''
   end
 end

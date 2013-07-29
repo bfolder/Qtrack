@@ -21,6 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Others
       t.string :name
+      t.belongs_to :role
 
       ## Encryptable
       # t.string :password_salt
