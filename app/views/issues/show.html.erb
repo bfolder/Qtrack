@@ -61,7 +61,7 @@
     <% @issue.comments.each_with_index do |comment, i|%>
         <article class="comment">
           <small style="display: block; margin-bottom: 5px;"><b>#<%= i + 1 %></b> - <a href="mailto: <%= comment.user.email unless comment.user.nil? %>" title="Author"><%= comment.user.name unless comment.user.nil? %></a> - <%= comment.created_at.strftime('%m/%d/%Y') %>
-            <% if true %>
+            <% if can? :destroy, comment %>
             - <%= link_to 'Delete', comment, :method => :delete, title: 'Delete' %>
             <% end %>
           </small>
