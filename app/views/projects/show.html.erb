@@ -36,7 +36,9 @@
       <h2><%= @project.name %></h2>
 
       <ul class="page-header-actions">
-        <li><%= link_to 'Edit Project', edit_project_path(@project), title: 'Edit Project', class: 'btn btn-wuxia' %></li>
+        <% if current_user.is_admin? %>
+            <li><%= link_to 'Edit Project', edit_project_path(@project), title: 'Edit Project', class: 'btn btn-wuxia' %></li>
+        <% end %>
         <li><%= link_to 'New Issue', new_project_issue_path(@project), title: 'New Issue', class: 'btn btn-wuxia btn-primary' %></li>
       </ul>
     </div>

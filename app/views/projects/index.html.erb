@@ -22,9 +22,11 @@
       <!-- Page grid cell (12 blocks - full) -->
       <h2>Projects</h2>
 
-      <ul class="page-header-actions">
-        <li><%= link_to 'New Project', new_project_path, class: 'btn btn-wuxia btn-primary' %></li>
-      </ul>
+      <% if current_user.is_admin? %>
+          <ul class="page-header-actions">
+            <li><%= link_to 'New Project', new_project_path, class: 'btn btn-wuxia btn-primary' %></li>
+          </ul>
+      <% end %>
     </div>
 
     <!-- Tab content -->

@@ -36,7 +36,9 @@
         <li>
           <%= print_resolve_button(@issue) %>
         </li>
-        <li><%= link_to 'Edit Issue', edit_issue_path(@issue), class: 'btn btn-wuxia' %></li>
+        <% if can? :edit, @issue %>
+            <li><%= link_to 'Edit Issue', edit_issue_path(@issue), class: 'btn btn-wuxia' %></li>
+        <% end %>
       </ul>
     </div>
     <!-- Tab content -->
