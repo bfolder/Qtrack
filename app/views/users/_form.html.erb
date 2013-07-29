@@ -1,0 +1,39 @@
+<%= form_for(@user) do |f| %>
+    <%= render partial: 'shared/errors', locals: {object: @user} %>
+    <fieldset>
+      <div class="control-group">
+        <label class="control-label" for="input">Email</label>
+        <div class="controls">
+          <% if is_edit %>
+            <input id="input-large disabled" class="input-xlarge" type="text" disabled value="<%= @user.email %>">
+            <p class="help-block"><i>Note: You cannot change your email address.</i></p>
+          <% else %>
+              <%= f.text_field :email, class: 'input-xlarge' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="input">Name</label>
+        <div class="controls">
+          <%= f.text_field :name, class: 'input-xlarge' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input">New Password</label>
+        <div class="controls">
+          <%= f.password_field :password, class: 'input-xlarge' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="input">Retype Password</label>
+        <div class="controls">
+          <%= f.password_field :password_confirmation, class: 'input-xlarge' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
+      </div>
+    </fieldset>
+<% end %>

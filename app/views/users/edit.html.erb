@@ -1,0 +1,28 @@
+<% provide :title, 'Account settings - Qtrack' %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li class="active">Account settings</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+  <%= render_flashes %>
+
+  <div class="content">
+    <div class="page-header">
+      <h2>Account settings <small> Change your personal account settings here.</small></h2>
+    </div>
+    <div class="page-container tab-content">
+      <%= render partial: 'form', locals: {is_edit: true} %>
+    </div>
+  </div>
+
+</div>
+<!-- /Main content -->

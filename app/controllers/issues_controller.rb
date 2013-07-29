@@ -56,7 +56,7 @@ class IssuesController < ApplicationController
     # Send response
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to @issue.project, notice: 'Issue was successfully created.' }
+        format.html { redirect_to @issue.project, flash: { success: 'Issue was successfully created.' }}
         format.json { render json: @issue, status: :created, location: @issue }
       else
         @form_object = [@issue.project, @issue]
@@ -74,7 +74,7 @@ class IssuesController < ApplicationController
     # Send response
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to @issue, flash: { success: 'Issue was successfully updated.' }}
         format.json { head :no_content }
       else
         @project = @issue.project
@@ -91,7 +91,7 @@ class IssuesController < ApplicationController
     # Send response
     respond_to do |format|
       if @issue.update_attributes(is_resolved: !@issue.is_resolved)
-        format.html { redirect_to @issue, notice: 'Issue was successfully updated.' }
+        format.html { redirect_to @issue, flash: { success: 'Issue was successfully updated.' }}
         format.json { head :no_content }
       else
         format.html { render action: 'show' }

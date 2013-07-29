@@ -39,7 +39,11 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#"><span class="awe-cogs"></span> Account settings</a></li>
+                <li>
+                  <%= link_to edit_user_path(current_user) do %>
+                      <span class="awe-cogs"></span> Account settings</a>
+                  <% end %>
+                </li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to destroy_user_session_path, :method => 'delete' do %>

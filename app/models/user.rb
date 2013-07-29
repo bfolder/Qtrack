@@ -18,4 +18,13 @@ class User < ActiveRecord::Base
   def is_user?
     role == Role.find_by_name('User')
   end
+
+  def update_attributes(attributes, options = {})
+    if attributes[:password].blank? && attributes[:password_confirmation].blank?
+      attributes.delete(:password)
+      attributes.delete(:password_confirmation)
+    end
+
+    super(attributes, options)
+  end
 end

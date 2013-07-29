@@ -6,15 +6,13 @@ class CommentsController < ApplicationController
     # Assign comment to issue
     @comment.issue = @issue
     @comment.user = current_user
-    puts '-------------------------'
-    puts @comment.user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @issue, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @issue, flash: { success: 'Comment was successfully created.' }}
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to @issue, notice: 'Comment was not created.'}
+        format.html { redirect_to @issue, flash: { error: 'Comment was not created.'}}
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
