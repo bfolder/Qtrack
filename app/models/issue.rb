@@ -12,10 +12,6 @@ class Issue < ActiveRecord::Base
     is_resolved
   end
 
-  def owner
-    user
-  end
-
 private
   def defaults
     self.priority ||= 1 # Default priority is 1

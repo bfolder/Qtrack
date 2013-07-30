@@ -10,10 +10,10 @@ class Ability
       can :read, [Comment, Project, Issue, User]
       can :create, [Comment, Issue]
       can :update, Issue do |issue|
-        issue.try(:owner) == user
+        issue.try(:user) == user
       end
       can :destroy, Comment do |comment|
-        comment.try(:owner) == user
+        comment.try(:user) == user
       end
     end
   end
