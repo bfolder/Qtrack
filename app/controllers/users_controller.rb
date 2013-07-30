@@ -31,8 +31,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        ## Action Mailer here
-        UserMailer.send_welcome_email(current_user, @user).deliver
+        # Send email to new user
+        UserMailer.welcome_email(@user, request).deliver
 
         format.html { redirect_to users_path, flash: { success: 'User was successfully created.' }}
         format.json { render json: @user, status: :created }
