@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Welcome to Qtrack, <%= @user.name %></h1>
+<p>
+  An admin has created an account for you.
+  <code>Your username is: <b><%= @user.login %></b><br/>
+  Your password is: <b><%= @user.password %></b><br/></code>
+</p>
+<p>
+  To login to the site, just follow this link: <%= @url %>.
+  Please login and change your password immediately!
+</p>
+</body>
+</html>
