@@ -5,11 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role_id
 
   has_many :issues
   has_many :comments
   belongs_to :role
+
+  accepts_nested_attributes_for :role, allow_destroy: false
+  after_initialize :defaults
 
   def is_admin?
     role == Role.find_by_name('Admin')
@@ -26,5 +29,10 @@ class User < ActiveRecord::Base
     end
 
     super(attributes, options)
+  end
+
+private
+  def defaults
+    self.role ||= Role.find_by_name('User')
   end
 end

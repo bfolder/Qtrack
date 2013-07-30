@@ -30,7 +30,7 @@
 
             <% if is_edit && can?(:destroy, @issue) %>
                 or</span>
-                <%= link_to 'Delete issue', @issue, :method => :delete, title: 'Delete issue', class: 'btn btn-wuxia  btn-danger' %>
+                <%= link_to 'Delete issue', @issue, :method => :delete, title: 'Delete issue', class: 'btn btn-wuxia  btn-danger', confirm: 'Are you sure you want to delete this issue?' %>
             <% end %>
           </div>
         </fieldset>

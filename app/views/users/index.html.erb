@@ -10,8 +10,12 @@
 
   <!-- Breadcrumbs -->
   <ul class="breadcrumb">
-    <li><a href="@routes.Application.index"><span class="awe-home"></span> Home</a></li>
-    <li class="active">User list</li>
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li class="active"><span class="awe-group"></span> User list</li>
   </ul>
   <!-- /Breadcrumbs -->
   <%= render_flashes %>
@@ -23,7 +27,7 @@
       <h2>All users (<%= @users.size %>)</h2>
       <% if current_user.is_admin? %>
           <ul class="page-header-actions">
-            <li><a class="btn btn-wuxia btn-primary" href="@routes.Users.add">New User</a></li>
+            <li><%= link_to 'New User', new_user_path, title: 'New User', class: 'btn btn-wuxia btn-primary' %></li>
           </ul>
       <% end %>
 
@@ -47,6 +51,7 @@
                 <th>Email</th>
                 <th>Issues created</th>
                 <th>Comments written</th>
+                <th>Role</th>
                 <% if current_user.is_admin? %>
                     <th id="options">Actions</th>
                 <% end %>
@@ -57,13 +62,16 @@
                   <tr id="user-@user.getId" class="odd gradeX">
                     <td><strong><%= user.name %></strong></td>
                     <td><%= user.email %></td>
-                    <td><%= user.issues.size %><</td>
+                    <td><%= user.issues.size %></td>
                     <td><%= user.comments.size %></td>
-                    <% if current_user.is_admin? %>
-                        <td width="100px" style="text-align: center;">
-                          - <%= link_to 'Delete User', user, :method => :delete, title: 'Delete User', class: 'btn-mini btn-wuxia btn-danger' %>
-                        </td>
-                    <% end %>
+                    <td><%= user.role.name %></td>
+                    <td width="100px" style="text-align: center;">
+                        <% if current_user.is_admin? && current_user != user %>
+                              <%= link_to 'Edit User', edit_user_path(user), title: 'Edit User', class: 'btn-mini btn-wuxia btn-primary' %>
+                        <% elsif current_user.is_admin? && current_user == user %>
+                            No action
+                        <% end %>
+                    </td>
                   </tr>
               <% end %>
               </tbody>

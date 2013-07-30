@@ -6,34 +6,53 @@
         <div class="controls">
           <% if is_edit %>
             <input id="input-large disabled" class="input-xlarge" type="text" disabled value="<%= @user.email %>">
-            <p class="help-block"><i>Note: You cannot change your email address.</i></p>
+            <% if current_user == @user %>
+                  <p class="help-block"><i>Note: You cannot change your email address.</i></p>
+            <% end %>
           <% else %>
               <%= f.text_field :email, class: 'input-xlarge' %>
           <% end %>
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label" for="input">Name</label>
-        <div class="controls">
-          <%= f.text_field :name, class: 'input-xlarge' %>
-        </div>
-      </div>
+      <% if current_user == @user || @user.new_record? %>
+          <div class="control-group">
+            <label class="control-label" for="input">Name</label>
+            <div class="controls">
+                <%= f.text_field :name, class: 'input-xlarge' %>
+            </div>
+          </div>
 
-      <div class="control-group">
-        <label class="control-label" for="input">New Password</label>
-        <div class="controls">
-          <%= f.password_field :password, class: 'input-xlarge' %>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label" for="input">Retype Password</label>
-        <div class="controls">
-          <%= f.password_field :password_confirmation, class: 'input-xlarge' %>
-        </div>
-      </div>
+          <div class="control-group">
+            <label class="control-label" for="input">
+              <%= is_edit ? 'New ' : '' %>Password</label>
+            <div class="controls">
+              <%= f.password_field :password, class: 'input-xlarge' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="input">Retype Password</label>
+            <div class="controls">
+              <%= f.password_field :password_confirmation, class: 'input-xlarge' %>
+            </div>
+          </div>
+      <% end %>
+
+      <% if current_user.is_admin? && current_user != @user %>
+          <div class="control-group">
+            <label class="control-label" for="select">Select Role</label>
+            <div class="controls">
+              <%= f.select :role_id, @roles.collect {|r| [r.name, r.id]} %>
+            </div>
+          </div>
+      <% end %>
 
       <div class="form-actions">
-        <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
+        <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-primary' %>
+
+        <% if is_edit && current_user.is_admin? && current_user != @user %>
+            or</span>
+            <%= link_to 'Delete user', @user, :method => :delete, title: 'Delete user', class: 'btn btn-wuxia btn-danger', confirm: 'Are you sure you want to delete this user?' %>
+        <% end %>
       </div>
     </fieldset>
 <% end %>

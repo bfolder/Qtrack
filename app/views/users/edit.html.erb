@@ -1,4 +1,7 @@
-<% provide :title, 'Account settings - Qtrack' %>
+<%
+   title = current_user == @user ? 'Account' : 'User'
+   provide :title, "#{title} settings - Qtrack"
+%>
 
 <!-- Main content -->
 <div class="container" role="main">
@@ -10,14 +13,22 @@
           <span class="awe-home"></span> Home
       <% end %>
     </li>
-    <li class="active">Account settings</li>
+    <% if current_user != @user %>
+        <li>
+          <%= link_to users_path do %>
+              <span class="awe-group"></span> User list
+          <% end %>
+        </li>
+    <% end %>
+
+    <li class="active"><%= current_user == @user ? 'Account' : 'User' %> settings</li>
   </ul>
   <!-- /Breadcrumbs -->
   <%= render_flashes %>
 
   <div class="content">
     <div class="page-header">
-      <h2>Account settings <small> Change your personal account settings here.</small></h2>
+      <h2><%= current_user == @user ? 'Account' : 'User' %> settings <small> Change <%= current_user == @user ? 'your personal account settings' : 'user role' %>  here.</small></h2>
     </div>
     <div class="page-container tab-content">
       <%= render partial: 'form', locals: {is_edit: true} %>

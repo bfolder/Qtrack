@@ -1,0 +1,32 @@
+<% provide :title, 'New user - Qtrack' %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li>
+      <%= link_to root_path do %>
+          <span class="awe-home"></span> Home
+      <% end %>
+    </li>
+    <li>
+      <%= link_to users_path do %>
+          <span class="awe-group"></span> User list
+      <% end %>
+    <li class="active">New user</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+  <%= render_flashes %>
+
+  <div class="content">
+    <div class="page-header">
+      <h2>New user <small> Use this form to add a new user. New users automatically get notified via email.</small></h2>
+    </div>
+    <div class="page-container tab-content">
+      <%= render partial: 'form', locals: {is_edit: false} %>
+    </div>
+  </div>
+
+</div>
+<!-- /Main content -->

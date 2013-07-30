@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   # GET /users
   # GET /users.json
   def index
@@ -7,6 +9,35 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
+    end
+  end
+
+  # GET /users/new
+  # GET /users/new.json
+  def new
+    @user = User.new
+    @roles = Role.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to users_path, flash: { success: 'User was successfully created.' }}
+        format.json { render json: @user, status: :created }
+      else
+        @roles = Role.all
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -41,7 +72,7 @@ class UsersController < ApplicationController
 
     # Send response
     respond_to do |format|
-      format.html { redirect_to issues_url }
+      format.html { redirect_to users_url, flash: { success: 'User was successfully deleted.' } }
       format.json { head :no_content }
     end
   end
