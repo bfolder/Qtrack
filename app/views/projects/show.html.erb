@@ -1,8 +1,8 @@
 <% provide :title, "#{@project.name} - Qtrack" %>
 
 <% content_for :js do %>
-    <%= javascript_include_tag 'js/plugins/dataTables/jquery.datatables.min' %>
-    <%= javascript_include_tag 'js/tables' %>
+    <%= javascript_include_tag 'js/tables_shared' %>
+    <%= javascript_include_tag 'js/tables_issues' %>
 <% end %>
 
 <!-- Main content -->

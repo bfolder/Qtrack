@@ -11,5 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require libs/modernizr
+//= require libs/selectivizr
+//= require navigation
+//= require bootstrap/bootstrap
 //= require jquery_ujs
 //= require_tree .

@@ -1,9 +1,6 @@
 <% provide(:title, 'New Issue - Qtrack') %>
 
 <% content_for :js do %>
-    <%= javascript_include_tag 'js/plugins/wysihtml5/wysihtml5-0.3.0' %>
-    <%= javascript_include_tag 'js/plugins/wysihtml5/bootstrap-wysihtml5' %>
-    <%= javascript_include_tag 'js/plugins/waypoints.min' %>
     <script>
       $(document).ready(function() {
             $('.wysihtml5').wysihtml5();

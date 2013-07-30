@@ -20,8 +20,6 @@
 
         <!-- JS Libs -->
         <%= javascript_include_tag 'application' %>
-        <%= javascript_include_tag 'js/libs/modernizr' %>
-        <%= javascript_include_tag 'js/libs/selectivizr' %>
 
         <title><%= yield :title %></title>
         <%= csrf_meta_tags %>
@@ -38,9 +36,6 @@
 
         <%= render "layouts/footer" %>
 
-        <!-- Scripts -->
-        <%= javascript_include_tag 'js/navigation' %>
-        <%= javascript_include_tag 'js/bootstrap/bootstrap' %>
         <%= yield :js %>
     </body>
 </html>
