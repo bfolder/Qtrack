@@ -4,19 +4,24 @@ class IssuesControllerTest < ActionController::TestCase
   setup do
     sign_in User.first
     @issue = issues(:one)
+    @project = projects(:one)
+    @user = users(:one)
+    @issue.user = @user
+    @issue.project = @project
+    @issue.save
   end
 
   test "should get new" do
-    get :new
+    get :new, project_id: @project.id
     assert_response :success
   end
 
   test "should create issue" do
     assert_difference('Issue.count') do
-      post :create, issue: { content: @issue.content, is_resolved: @issue.is_resolved, name: @issue.name, priority: @issue.priority }
+      post :create, issue: { content: @issue.content, is_resolved: @issue.is_resolved, name: @issue.name, priority: @issue.priority }, project_id: @project.id
     end
 
-    assert_redirected_to issue_path(assigns(:issue))
+    assert_redirected_to @project
   end
 
   test "should show issue" do
@@ -39,6 +44,6 @@ class IssuesControllerTest < ActionController::TestCase
       delete :destroy, id: @issue
     end
 
-    assert_redirected_to issues_path
+    assert_redirected_to @project
   end
 end
