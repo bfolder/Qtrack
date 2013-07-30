@@ -1,0 +1,87 @@
+<% provide :title, 'User list - Qtrack' %>
+
+<% content_for :js do %>
+    <%= javascript_include_tag 'js/plugins/dataTables/jquery.datatables.min' %>
+    <%= javascript_include_tag 'js/tables_users' %>
+<% end %>
+
+<!-- Main content -->
+<div class="container" role="main">
+
+  <!-- Breadcrumbs -->
+  <ul class="breadcrumb">
+    <li><a href="@routes.Application.index"><span class="awe-home"></span> Home</a></li>
+    <li class="active">User list</li>
+  </ul>
+  <!-- /Breadcrumbs -->
+  <%= render_flashes %>
+
+  <!-- Main data container -->
+  <div class="content">
+
+    <div class="page-header">
+      <h2>All users (<%= @users.size %>)</h2>
+      <% if current_user.is_admin? %>
+          <ul class="page-header-actions">
+            <li><a class="btn btn-wuxia btn-primary" href="@routes.Users.add">New User</a></li>
+          </ul>
+      <% end %>
+
+    </div>
+    <!-- Tab content -->
+    <div class="page-container tab-content">
+
+      <!-- Tab #ui -->
+      <div class="tab-pane active" id="ui">
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- /Page grid cell (12 blocks - full) -->
+
+          <!-- Page grid cell (12 blocks - full) -->
+          <article class="span12">
+            <table class="datatable table table-striped table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Issues created</th>
+                <th>Comments written</th>
+                <% if current_user.is_admin? %>
+                    <th id="options">Actions</th>
+                <% end %>
+              </tr>
+              </thead>
+              <tbody>
+              <% @users.each do |user| %>
+                  <tr id="user-@user.getId" class="odd gradeX">
+                    <td><strong><%= user.name %></strong></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.issues.size %><</td>
+                    <td><%= user.comments.size %></td>
+                    <% if current_user.is_admin? %>
+                        <td width="100px" style="text-align: center;">
+                          - <%= link_to 'Delete User', user, :method => :delete, title: 'Delete User', class: 'btn-mini btn-wuxia btn-danger' %>
+                        </td>
+                    <% end %>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </article>
+          <!-- Page grid cell (12 blocks - full) -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- /Tab #ui -->
+
+    </div>
+    <!-- /Tab content -->
+
+  </div>
+  <!-- /Main data container -->
+
+</div>
+<!-- /Main content -->

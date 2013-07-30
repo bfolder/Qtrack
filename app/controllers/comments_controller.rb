@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to @issue }
+      format.html { redirect_to @issue, flash: { success: 'Comment was successfully deleted.' } }
       format.json { head :no_content }
     end
   end

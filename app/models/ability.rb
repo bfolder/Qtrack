@@ -12,8 +12,13 @@ class Ability
       can :update, Issue do |issue|
         issue.try(:user) == user
       end
+
       can :destroy, Comment do |comment|
         comment.try(:user) == user
+      end
+
+      can :destroy, Issue do |issue|
+        issue.try(:user) == user
       end
     end
   end

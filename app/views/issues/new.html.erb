@@ -40,7 +40,7 @@
       <h2>New issue - <%= @issue.project.name %><small> Use this form to create a new issue.</small></h2>
     </div>
 
-    <%= render 'issues/form' %>
+    <%= render partial: 'form', locals: {is_edit: false} %>
 
   </div>
 </div>

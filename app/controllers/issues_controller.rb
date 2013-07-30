@@ -105,13 +105,14 @@ class IssuesController < ApplicationController
   def destroy
     # Find corresponding issue
     @issue = Issue.find(params[:id])
+    @project = @issue.project
 
     # Delete issue
     @issue.destroy
 
     # Send response
     respond_to do |format|
-      format.html { redirect_to issues_url }
+      format.html { redirect_to @project, flash: { success: 'Issue was successfully deleted.' } }
       format.json { head :no_content }
     end
   end

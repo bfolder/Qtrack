@@ -26,7 +26,12 @@
           </div>
 
           <div class="form-actions">
-            <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-large btn-primary' %>
+            <%= content_tag :button, 'Save', type: :submit, class: 'btn btn-wuxia btn-primary' %>
+
+            <% if is_edit && can?(:destroy, @issue) %>
+                or</span>
+                <%= link_to 'Delete issue', @issue, :method => :delete, title: 'Delete issue', class: 'btn btn-wuxia  btn-danger' %>
+            <% end %>
           </div>
         </fieldset>
     <% end %>
