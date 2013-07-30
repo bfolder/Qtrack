@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def user_list_active?
-    return 'active' if @users
+    return 'active' if @users || (@user && @user != current_user)
     ''
   end
 end
