@@ -1,0 +1,5 @@
+Qtrack - Things I might add later
+-----
+- File Attachments (Using paperclip)
+- Dashboard with statistics
+- Repository hooks
