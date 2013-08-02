@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Rails 3.2
 gem 'rails', '3.2.13'
+gem 'therubyracer'
 
 # Authentication via Device & CanCan
 gem 'devise'
