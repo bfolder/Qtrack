@@ -1,5 +1,7 @@
 Qtrack - Things I might add later
 -----
 - File Attachments (Using paperclip)
+- Add ability to archive Projects/Issues
+- Improve project list
 - Dashboard with statistics
 - Repository hooks
