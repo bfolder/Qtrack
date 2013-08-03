@@ -10,5 +10,16 @@ Qtrack::Application.routes.draw do
     end
   end
 
-  root :to => redirect('/projects')
+  authenticated :user do
+    root :to => redirect('/projects')
+  end
+  unauthenticated :user do
+    devise_scope :user do
+      get '/' => 'devise/sessions#new'
+    end
+  end
+
+  authenticated :user do
+    root :to => redirect('/projects')
+  end
 end
