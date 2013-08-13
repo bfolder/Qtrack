@@ -5860,7 +5860,7 @@ a.badge:focus {
   height: 16px;
   line-height: 16px;
   vertical-align: text-top;
-  background-image: url("../img/icons/emoticons-icons.png");
+  background-image: url("img/icons/emoticons-icons.png");
   background-position: 16px 16px;
   background-repeat: no-repeat;
   *margin-right: .3em;
@@ -5964,8 +5964,8 @@ a.badge:focus {
 }
 @font-face {
   font-family: 'Elusive-Icons';
-  src: url('../stylesheets/font/Elusive-Icons.eot');
-  src: url('../stylesheets/font/Elusive-Icons.eot?#iefix') format('embedded-opentype'), url('../stylesheets/font/Elusive-Icons.svg#Elusive-Icons') format('svg'), url('../stylesheets/font/Elusive-Icons.woff') format('woff'), url('../stylesheets/font/Elusive-Icons.ttf') format('truetype');
+  src: url('stylesheets/font/Elusive-Icons.eot');
+  src: url('stylesheets/font/Elusive-Icons.eot?#iefix') format('embedded-opentype'), url('stylesheets/font/Elusive-Icons.svg#Elusive-Icons') format('svg'), url('stylesheets/font/Elusive-Icons.woff') format('woff'), url('stylesheets/font/Elusive-Icons.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -6874,8 +6874,8 @@ ul.icons li .icon-large:before {
  */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../stylesheets/font/fontawesome-webfont.eot?v=3.0.1');
-  src: url('../stylesheets/font/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'), url('../stylesheets/font/fontawesome-webfont.woff?v=3.0.1') format('woff'), url('../stylesheets/font/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
+  src: url('stylesheets/font/fontawesome-webfont.eot?v=3.0.1');
+  src: url('stylesheets/font/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'), url('stylesheets/font/fontawesome-webfont.woff?v=3.0.1') format('woff'), url('stylesheets/font/fontawesome-webfont.ttf?v=3.0.1') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -7941,7 +7941,7 @@ abbr[title] {
 .navbar .brand {
   padding: 0;
   margin: 8px 10px 0 0;
-  background-image: url("../img/small_logo.png");
+  background-image: url("img/small_logo.png");
   background-repeat: no-repeat;
   width: 109px;
   height: 30px;
@@ -8268,7 +8268,7 @@ abbr[title] {
   color: #389abe;
 }
 .breadcrumb li {
-  background-image: url("../img/assets/breadcrumbs_divider.png");
+  background-image: url("img/assets/breadcrumbs_divider.png");
   background-position: center right;
   background-repeat: no-repeat;
   padding-right: 10px;
@@ -8345,7 +8345,7 @@ footer.container p a:hover {
 .content {
   margin: 0 -1px;
   background-color: #fdfdfd;
-  background-image: url("../img/assets/bg_content.jpg");
+  background-image: url("img/assets/bg_content.jpg");
   background-repeat: repeat;
   border: 1px solid #e0e0e0;
   -webkit-border-radius: 4px;
@@ -9575,7 +9575,7 @@ form .alert .close {
 /* Loading */
 .loading {
   display: inline-block;
-  background-image: url("../img/icons/loading_blue.gif");
+  background-image: url("img/icons/loading_blue.gif");
   background-repeat: no-repeat;
   background-position: center;
   font: 0/0 a;
@@ -9587,22 +9587,22 @@ form .alert .close {
   height: 32px;
 }
 .loading.dark {
-  background-image: url("../img/icons/loading_dark.gif");
+  background-image: url("img/icons/loading_dark.gif");
 }
 .loading.red {
-  background-image: url("../img/icons/loading_red.gif");
+  background-image: url("img/icons/loading_red.gif");
 }
 .loading.green {
-  background-image: url("../img/icons/loading_green.gif");
+  background-image: url("img/icons/loading_green.gif");
 }
 .loading.blue {
-  background-image: url("../img/icons/loading_blue.gif");
+  background-image: url("img/icons/loading_blue.gif");
 }
 .loading.orange {
-  background-image: url("../img/icons/loading_orange.gif");
+  background-image: url("img/icons/loading_orange.gif");
 }
 .loading.purple {
-  background-image: url("../img/icons/loading_purple.gif");
+  background-image: url("img/icons/loading_purple.gif");
 }
 /* Wizard */
 .wizard {
@@ -10137,19 +10137,19 @@ form .alert .close {
   *cursor: hand;
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting {
-  background-image: url("../img/plugins/dataTables/sort_both.png");
+  background-image: url("img/plugins/dataTables/sort_both.png");
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting_asc {
-  background-image: url("../img/plugins/dataTables/sort_asc.png");
+  background-image: url("img/plugins/dataTables/sort_asc.png");
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting_desc {
-  background-image: url("../img/plugins/dataTables/sort_desc.png");
+  background-image: url("img/plugins/dataTables/sort_desc.png");
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting_asc_disabled {
-  background-image: url("../img/plugins/dataTables/sort_asc_disabled.png");
+  background-image: url("img/plugins/dataTables/sort_asc_disabled.png");
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting_desc_disabled {
-  background-image: url("../img/plugins/dataTables/sort_desc_disabled.png");
+  background-image: url("img/plugins/dataTables/sort_desc_disabled.png");
 }
 .content .page-container .dataTables_wrapper table.table thead .sorting,
 .content .page-container .dataTables_wrapper table.table thead .sorting_asc,
@@ -10494,7 +10494,7 @@ div.wysiwyg ul.toolbar {
   border: none;
 }
 div.wysiwyg ul.toolbar li {
-  background-image: url("../img/plugins/jWYSIWYG/jquery.wysiwyg.gif");
+  background-image: url("img/plugins/jWYSIWYG/jquery.wysiwyg.gif");
 }
 /* jQuery Snippet */
 .snippet-container pre .snippet-num,
@@ -10679,7 +10679,7 @@ div.jGrowl div.inverse a:hover {
 .colorpicker-saturation {
   width: 100px;
   height: 100px;
-  background-image: url("../img/plugins/colorpicker/saturation.png");
+  background-image: url("img/plugins/colorpicker/saturation.png");
   cursor: crosshair;
   float: left;
 }
@@ -10727,10 +10727,10 @@ div.jGrowl div.inverse a:hover {
   margin-top: -1px;
 }
 .colorpicker-hue {
-  background-image: url("../img/plugins/colorpicker/hue.png");
+  background-image: url("img/plugins/colorpicker/hue.png");
 }
 .colorpicker-alpha {
-  background-image: url("../img/plugins/colorpicker/alpha.png");
+  background-image: url("img/plugins/colorpicker/alpha.png");
   display: none;
 }
 .colorpicker {
@@ -10762,7 +10762,7 @@ div.jGrowl div.inverse a:hover {
   height: 10px;
   margin-top: 5px;
   clear: both;
-  background-image: url("../img/plugins/colorpicker/alpha.png");
+  background-image: url("img/plugins/colorpicker/alpha.png");
   background-position: 0 100%;
 }
 .colorpicker-color div {
@@ -10897,7 +10897,7 @@ div.jGrowl div.inverse a:hover {
 /* Login page styles */
 
 .login {
-  background-image: url("../img/big_logo.png");
+  background-image: url("img/big_logo.png");
   background-repeat: no-repeat;
   background-position: center 180px;
 }

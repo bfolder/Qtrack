@@ -11,5 +11,6 @@
  *= require_self
  *= require plugins/jquery.visualize
  *= require plugins/bootstrap.wysihtml5
+ *= require style
  *= require_tree .
  */
