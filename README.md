@@ -4,6 +4,10 @@ Qtrack is a small web-based issue tracker based on Rails.
 
 This project is WIP. Feel free to contribute and comment.
 
+### Screenshot
+
+![Qtrack](https://github.com/bfolder/Qtrack/raw/master/screenshot.png)
+
 ---
 ### Licensing
 
