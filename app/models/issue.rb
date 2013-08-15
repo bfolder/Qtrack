@@ -12,6 +12,13 @@ class Issue < ActiveRecord::Base
     is_resolved
   end
 
+  def self.create(params, current_user)
+    @issue = Issue.new(params[:issue])
+    @issue.user = current_user
+    @issue.project = Project.find(params[:project_id])
+    @issue
+  end
+
 private
   def defaults
     self.priority ||= 1 # Default priority is 1

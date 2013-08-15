@@ -9,7 +9,7 @@ class CommentsControllerTest < ActionController::TestCase
     @issue.save
   end
 
-  test "should create comment" do
+  test 'should create comment' do
     assert_difference('Comment.count') do
       post :create, comment: { content: @comment.content }, issue_id: @issue.id
     end

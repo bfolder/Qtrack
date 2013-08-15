@@ -13,8 +13,12 @@ class IssueTest < ActiveSupport::TestCase
   end
 
   test 'Issue has comments' do
-    issue = Issue.create(name: 'Testproject', content: 'Testcontent')
-    comment = Comment.create(content: 'Testcontent')
+    issue = Issue.new
+    issue.name = 'Testissue'
+    issue.content = 'Testcontent'
+
+    comment = Comment.new
+    comment.content = 'Testcontent'
     issue.comments << comment
 
     assert issue.comments.last, 'Issue should have a comment'

@@ -21,7 +21,7 @@ test:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   host: localhost
   encoding: utf8
   database: qtrack
