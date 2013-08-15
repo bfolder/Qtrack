@@ -11,12 +11,12 @@ class IssuesControllerTest < ActionController::TestCase
     @issue.save
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new, project_id: @project.id
     assert_response :success
   end
 
-  test "should create issue" do
+  test 'should create issue' do
     assert_difference('Issue.count') do
       post :create, issue: { content: @issue.content, is_resolved: @issue.is_resolved, name: @issue.name, priority: @issue.priority }, project_id: @project.id
     end
@@ -24,22 +24,22 @@ class IssuesControllerTest < ActionController::TestCase
     assert_redirected_to @project
   end
 
-  test "should show issue" do
+  test 'should show issue' do
     get :show, id: @issue
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @issue
     assert_response :success
   end
 
-  test "should update issue" do
+  test 'should update issue' do
     put :update, id: @issue, issue: { content: @issue.content, is_resolved: @issue.is_resolved, name: @issue.name, priority: @issue.priority }
     assert_redirected_to issue_path(assigns(:issue))
   end
 
-  test "should destroy issue" do
+  test 'should destroy issue' do
     assert_difference('Issue.count', -1) do
       delete :destroy, id: @issue
     end
