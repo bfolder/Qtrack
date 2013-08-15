@@ -7,11 +7,7 @@ gem 'therubyracer'
 # Authentication via Device & CanCan
 gem 'devise'
 gem 'cancan'
-
-#  Database stuff: use sqlite in dev mode and mysql2 in production
-group :development, :test do
-	gem 'sqlite3'
-end
+gem 'sqlite3'
 
 group :production do
 	gem 'pg'
