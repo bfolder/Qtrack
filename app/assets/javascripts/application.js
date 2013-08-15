@@ -15,8 +15,5 @@
 //= require libs/selectivizr
 //= require navigation
 //= require bootstrap/bootstrap
-//= require tables_issues
-//= require tables_shared
-//= require tables_users
 //= require jquery_ujs
 //= require_tree .
