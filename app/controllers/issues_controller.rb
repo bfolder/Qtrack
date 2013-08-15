@@ -45,13 +45,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     # Create new issue
-    @issue = Issue.new(params[:issue])
-
-    # Assign current user
-    @issue.user = current_user
-
-    # Assign project here
-    @issue.project = Project.find(params[:project_id])
+    @issue = Issue.create(params[:issue], current_user)
 
     # Send response
     respond_to do |format|

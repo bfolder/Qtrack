@@ -1,11 +1,7 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(params[:comment])
-    @issue = Issue.find(params[:issue_id])
-
-    # Assign comment to issue
-    @comment.issue = @issue
-    @comment.user = current_user
+    @comment = Comment.create(params, current_user)
+    @issue = @comment.issue
 
     respond_to do |format|
       if @comment.save
