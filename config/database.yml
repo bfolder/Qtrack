@@ -13,5 +13,9 @@ test:
    database: db/test.sqlite3
 
 production:
-   <<: *defaults
-   database: db/production.sqlite3
+   adapter: postgresql
+   encoding: utf8
+   database: qtrack
+   pool: 5
+   username: 
+   password:
