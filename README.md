@@ -1,6 +1,6 @@
 ### Readme
 
-Qtrack is a small web-based issue tracker based on Rails.
+Qtrack is a small issue tracker based on Rails.
 
 This project is WIP. Feel free to contribute and comment.
 
