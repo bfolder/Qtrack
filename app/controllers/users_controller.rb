@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     # Find corresponding user
     @user = User.find(params[:id])
 
-    # Delete issue
+    # Delete user
     @user.destroy
 
     # Send response
